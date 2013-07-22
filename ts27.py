@@ -32,11 +32,12 @@ http_method = "GET"
 http_handler  = urllib.HTTPHandler(debuglevel=_debug)
 https_handler = urllib.HTTPSHandler(debuglevel=_debug)
 
-'''
-Construct, sign, and open a twitter request
-using the hard-coded credentials above.
-'''
 def twitterreq(url, method, parameters):
+  """
+  Construct, sign, and open a twitter request
+  using the hard-coded credentials above.
+  """
+    
   req = oauth.Request.from_consumer_and_token(oauth_consumer,
                                              token=oauth_token,
                                              http_method=http_method,
@@ -61,6 +62,7 @@ def twitterreq(url, method, parameters):
 
   return response
 
+
 def fetchsamples():
   url = "https://stream.twitter.com/1.1/statuses/filter.json"
 #  keywords = 'путин OR обама'
@@ -79,21 +81,7 @@ def fetchsamples():
 
 
 
-   
-#    itercount = range(0,(len(statuses)-1),1)  
-#    print itercount
+if __name__ == '__main__':
+  fetchsamples()
 
 
-#  for line in response:
-#   print line.strip()
-
-#print response
-#  return json.load(response)
-
-#for line in response:
-#    print line.strip()
-#
-#if __name__ == '__main__':
-#  fetchsamples()
-
-fetchsamples()
